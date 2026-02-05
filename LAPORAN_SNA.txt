@@ -1,0 +1,169 @@
+================================================================================
+LAPORAN ANALISIS SOCIAL NETWORK ANALYSIS (SNA)
+KOMENTAR YOUTUBE VIDEO "DALANG DEMO DAN MENCEGAH DARURAT MILITER"
+================================================================================
+
+================================================================================
+1. LATAR BELAKANG MASALAH
+================================================================================
+
+Media sosial telah menjadi ruang publik digital yang memungkinkan masyarakat untuk menyampaikan pendapat, berdiskusi, dan berinteraksi mengenai berbagai isu, termasuk isu politik. YouTube sebagai platform berbagi video terbesar di dunia menyediakan fitur kolom komentar yang memungkinkan pengguna untuk berinteraksi satu sama lain.
+
+Video berjudul "Dalang Demo dan Mencegah Darurat Militer" yang diunggah oleh Ferry Irwandi merupakan konten analisis politik yang membahas isu sensitif terkait demonstrasi dan potensi kondisi darurat militer di Indonesia. Video ini memicu diskusi intens dengan ribuan komentar dari warganet yang menyampaikan berbagai perspektif.
+
+Kolom komentar YouTube menjadi representasi dari diskusi publik digital yang dapat dianalisis untuk memahami pola interaksi sosial. Dengan menggunakan pendekatan Social Network Analysis (SNA), penelitian ini bertujuan untuk mengungkap struktur jaringan interaksi, mengidentifikasi aktor-aktor kunci, dan mendeteksi komunitas yang terbentuk dalam diskusi tersebut.
+
+================================================================================
+2. MAKSUD DAN TUJUAN ANALISIS
+================================================================================
+
+MAKSUD:
+Melakukan analisis jaringan sosial (Social Network Analysis) terhadap pola interaksi komentar YouTube untuk memahami dinamika diskusi publik pada isu politik kontroversial di Indonesia.
+
+TUJUAN:
+1. Mengidentifikasi key actors (aktor kunci) dalam jaringan komentar berdasarkan metrik centrality
+2. Mendeteksi komunitas yang terbentuk dari pola interaksi antar pengguna menggunakan algoritma modularity
+3. Menganalisis karakteristik jaringan interaksi untuk memahami pola diskusi publik
+4. Memvisualisasikan jaringan interaksi untuk memberikan gambaran yang komprehensif
+
+================================================================================
+3. TAHAPAN ANALISIS
+================================================================================
+
+TAHAP 1: DATA COLLECTION
+- Menggunakan YouTube Data API v3 untuk mengambil data komentar
+- Tools: Python, Google Colab, google-api-python-client library
+- Output: Data komentar termasuk author, text, dan relasi reply
+
+TAHAP 2: DATA PREPROCESSING
+- Mengkonversi data komentar menjadi format edge list (Source, Target)
+- Definisi edge: User A membalas komentar User B = Edge (A -> B)
+- Menghapus duplikasi dan membersihkan data
+- Tools: Pandas library
+- Output: File CSV dengan kolom Source dan Target
+
+TAHAP 3: NETWORK CONSTRUCTION
+- Import file edge list ke software analisis jaringan
+- Membangun graf directed berdasarkan relasi reply
+- Tools: Gephi
+- Output: Graf jaringan siap dianalisis
+
+TAHAP 4: NETWORK ANALYSIS
+- Menghitung metrik centrality (Degree, Betweenness, Closeness)
+- Menjalankan algoritma community detection (Modularity)
+- Tools: Gephi Statistics
+- Output: Nilai centrality dan pembagian komunitas
+
+TAHAP 5: VISUALIZATION
+- Menerapkan layout algorithm (Fruchterman Reingold / ForceAtlas 2)
+- Mewarnai nodes berdasarkan komunitas (Modularity Class)
+- Mengatur ukuran nodes berdasarkan Degree
+- Tools: Gephi
+- Output: Visualisasi jaringan
+
+TAHAP 6: INTERPRETATION
+- Menginterpretasi hasil analisis
+- Menarik kesimpulan berdasarkan temuan
+
+================================================================================
+4. METODE ANALISIS
+================================================================================
+
+PENDEKATAN: Analisis berbasis NODE
+
+ALASAN PEMILIHAN:
+Penelitian ini menggunakan pendekatan berbasis node karena fokus utama adalah mengidentifikasi individu (user) yang berperan penting dalam jaringan diskusi. Analisis node memungkinkan identifikasi opinion leader, bridge connector, dan aktor berpengaruh lainnya dalam jaringan.
+
+DEFINISI JARINGAN:
+- Node: Pengguna YouTube yang berkomentar pada video
+- Edge: Relasi reply (User A membalas komentar User B menciptakan edge A -> B)
+- Tipe Graf: Directed (berarah)
+
+METRIK CENTRALITY YANG DIGUNAKAN:
+
+1. Degree Centrality
+   - Mengukur jumlah koneksi langsung yang dimiliki suatu node
+   - In-Degree: Jumlah komentar yang diterima (dibalas orang lain)
+   - Out-Degree: Jumlah komentar yang diberikan (membalas orang lain)
+   - Interpretasi: User dengan degree tinggi merupakan aktor yang aktif berinteraksi
+
+2. Betweenness Centrality
+   - Mengukur seberapa sering suatu node berada di jalur terpendek antar node lain
+   - Interpretasi: User dengan betweenness tinggi berperan sebagai jembatan/penghubung antar kelompok
+
+3. Closeness Centrality
+   - Mengukur rata-rata jarak dari suatu node ke semua node lainnya
+   - Interpretasi: User dengan closeness tinggi dapat menjangkau seluruh jaringan dengan cepat
+
+COMMUNITY DETECTION:
+- Algoritma: Modularity (Louvain method)
+- Fungsi: Mengelompokkan nodes yang memiliki kepadatan koneksi internal lebih tinggi
+- Output: Pembagian komunitas dengan Modularity Class
+
+================================================================================
+5. HASIL ANALISIS
+================================================================================
+
+STATISTIK JARINGAN:
+- Total Nodes: [ISI SESUAI DATA]
+- Total Edges: [ISI SESUAI DATA]
+- Network Density: [ISI SESUAI DATA]
+- Modularity Score: [ISI SESUAI DATA]
+- Jumlah Komunitas: [ISI SESUAI DATA]
+
+TOP 10 USER BERDASARKAN DEGREE CENTRALITY:
++------+----------------------+--------+-------------+
+| Rank | User                 | Degree | Interpretasi|
++------+----------------------+--------+-------------+
+| 1    | [ISI]                | [ISI]  | Opinion Leader |
+| 2    | [ISI]                | [ISI]  |             |
+| 3    | [ISI]                | [ISI]  |             |
+| 4    | [ISI]                | [ISI]  |             |
+| 5    | [ISI]                | [ISI]  |             |
++------+----------------------+--------+-------------+
+
+TOP 5 USER BERDASARKAN BETWEENNESS CENTRALITY:
++------+----------------------+-------------+-------------+
+| Rank | User                 | Betweenness | Interpretasi|
++------+----------------------+-------------+-------------+
+| 1    | [ISI]                | [ISI]       | Bridge/Connector |
+| 2    | [ISI]                | [ISI]       |             |
+| 3    | [ISI]                | [ISI]       |             |
++------+----------------------+-------------+-------------+
+
+HASIL COMMUNITY DETECTION:
+- Komunitas 1: [ISI jumlah anggota] users - Karakteristik: [ISI]
+- Komunitas 2: [ISI jumlah anggota] users - Karakteristik: [ISI]
+- Komunitas 3: [ISI jumlah anggota] users - Karakteristik: [ISI]
+
+VISUALISASI JARINGAN:
+[SISIPKAN SCREENSHOT GEPHI DI SINI]
+
+================================================================================
+6. KESIMPULAN
+================================================================================
+
+Berdasarkan analisis Social Network Analysis terhadap komentar video "Dalang Demo dan Mencegah Darurat Militer" oleh Ferry Irwandi, dapat disimpulkan bahwa:
+
+1. AKTOR KUNCI (KEY ACTORS)
+   User [ISI NAMA] memiliki degree centrality tertinggi, menunjukkan perannya sebagai opinion leader yang komentarnya paling banyak memicu interaksi dari pengguna lain.
+
+2. BRIDGE CONNECTOR
+   User [ISI NAMA] memiliki betweenness centrality tertinggi, mengindikasikan perannya sebagai jembatan yang menghubungkan antar kelompok diskusi.
+
+3. STRUKTUR KOMUNITAS
+   Terdeteksi [ISI JUMLAH] komunitas dengan modularity score [ISI], menunjukkan adanya [tinggi/sedang/rendah] segregasi dalam jaringan diskusi.
+
+4. POLA INTERAKSI
+   Jaringan menunjukkan pola [ISI: terpusat/tersebar/clustered] yang mengindikasikan [ISI interpretasi].
+
+================================================================================
+7. FILE PENDUKUNG
+================================================================================
+
+1. gephi_network.csv - File edge list (Source, Target)
+2. youtube_sna_colab.ipynb - Jupyter Notebook untuk scraping data
+3. project_sna.gephi - File project Gephi
+4. Laporan_SNA.pdf - Laporan lengkap (file ini)
+
+================================================================================
